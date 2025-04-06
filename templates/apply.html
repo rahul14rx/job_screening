@@ -1,0 +1,54 @@
+<!-- templates/apply.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apply | ShortListed</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    input[type="file"] {
+      background: #1e1e1e;
+      color: white;
+      border: 1px solid #b57cf2;
+    }
+    button {
+      background-color: #b57cf2;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Upload Your Resume</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="resume" accept="application/pdf" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!-- jobs.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Openings | ShortListed</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      padding: 40px;
+      animation: fadeIn 1.5s ease-in;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #b57cf2;
+      font-size: 2.5rem;
+    }
+    .job-listing {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 900px;
+      transition: 0.3s;
+    }
+    .job-listing:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: scale(1.01);
+    }
+    .job-description {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    .apply-btn {
+      padding: 10px 20px;
+      background-color: #b57cf2;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .apply-btn:hover {
+      background-color: #9f5fee;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Current Job Openings</h1>
+  {% if jobs %}
+    {% for job in jobs %}
+      <div class="job-listing">
+        <div class="job-description">{{ job[1] }}</div>
+        <form action="/apply/{{ job[0] }}" method="get">
+          <button class="apply-btn">Apply Now</button>
+        </form>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p style="text-align: center; color: #aaa">No job openings available at the moment.</p>
+  {% endif %}
+</body>
+</html>

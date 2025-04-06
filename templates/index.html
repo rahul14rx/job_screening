@@ -1,0 +1,64 @@
+<!-- index.html (Landing Page) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortListed</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+    h1 {
+      font-size: 5rem;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 2.5s forwards;
+    }
+    .highlight {
+      color: white;
+      text-shadow: 0 0 8px #fff;
+    }
+    .rest {
+      color: #b57cf2;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    .button {
+      margin-top: 40px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+      background-color: rgba(181, 124, 242, 0.7);
+      border: none;
+      border-radius: 10px;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 12px rgba(181, 124, 242, 0.4);
+    }
+    .button:hover {
+      background-color: rgba(158, 86, 233, 0.8);
+      box-shadow: 0 0 16px rgba(158, 86, 233, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1><span class="highlight">S</span><span class="rest">hort</span><span class="highlight">L</span><span class="rest">isted</span></h1>
+  <form action="/choose">
+    <button type="submit" class="button">Let's Get Started</button>
+  </form>
+</body>
+</html>

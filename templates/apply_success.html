@@ -1,0 +1,41 @@
+<!-- templates/apply_success.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Submitted | ShortListed</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #b57cf2;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #ccc;
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Thanks for Submitting!</h1>
+  <p>Your resume has been submitted successfully. Please wait while our system shortlists the top candidates. You'll receive an update soon.</p>
+</body>
+</html>

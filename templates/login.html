@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | ShortListed</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .box {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 12px;
+      width: 400px;
+      border: 1px solid #b57cf2;
+    }
+    h2 {
+      text-align: center;
+      color: #b57cf2;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      background: #1e1e1e;
+      color: white;
+      border: 1px solid #b57cf2;
+      border-radius: 6px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #b57cf2;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #9e56e9;
+    }
+    .error {
+      color: red;
+      text-align: center;
+    }
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+    .register-link a {
+      color: #b57cf2;
+      text-decoration: none;
+    }
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Admin Login</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+    <div class="register-link">
+      New here? <a href="{{ url_for('register') }}">Register now</a>
+    </div>
+  </div>
+</body>
+</html>

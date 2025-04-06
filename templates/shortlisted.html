@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortListed | Results</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      color: #b57cf2;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #444;
+      text-align: left;
+    }
+    th {
+      color: #ccc;
+    }
+    .bar-container {
+      background-color: #2a2a2a;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 24px;
+    }
+    .bar {
+      height: 100%;
+      background: linear-gradient(to right, #a36ef2, #b57cf2);
+      animation: grow 1.5s ease forwards;
+    }
+    .score {
+      font-weight: bold;
+    }
+    .score.red { color: red; }
+    .score.orange { color: orange; }
+    .score.yellow { color: yellow; }
+    .score.green { color: limegreen; }
+    @keyframes grow {
+      from { width: 0; }
+      to { width: var(--score); }
+    }
+  </style>
+</head>
+<body>
+  <h1>ShortListed Candidates</h1>
+  {% if candidates %}
+  <table>
+    <tr>
+      <th>Candidate</th>
+      <th>Match Score</th>
+      <th>Visual Score</th>
+      <th>Recommendation</th>
+    </tr>
+    {% for name, score in candidates %}
+    {% set percent = (score * 100) | round(1) %}
+    <tr>
+      <td>{{ name }}</td>
+      <td>
+        <span class="score
+          {% if percent <= 50 %}red
+          {% elif percent <= 60 %}orange
+          {% elif percent <= 75 %}yellow
+          {% else %}green
+          {% endif %}">
+          {{ percent }}%
+        </span>
+      </td>
+      <td>
+        <div class="bar-container">
+          <div class="bar" style="--score: {{ percent }}%"></div>
+        </div>
+      </td>
+      <td>
+        {% if percent <= 50 %}
+          Not recommended for hire.
+        {% elif percent <= 60 %}
+          Consider with caution.
+        {% elif percent <= 75 %}
+          Likely fit — evaluate further.
+        {% else %}
+          Strongly recommended for hire.
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <p>No strong matches found.</p>
+  {% endif %}
+</body>
+</html>

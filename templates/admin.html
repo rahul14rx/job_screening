@@ -1,0 +1,90 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShortListed | Admin Panel</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 12px;
+      border: 1px solid #b57cf2;
+      width: 500px;
+    }
+    h1 {
+      text-align: center;
+      color: #b57cf2;
+    }
+    select, textarea, button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1rem;
+      background: #1e1e1e;
+      color: white;
+      border: 1px solid #b57cf2;
+      border-radius: 6px;
+    }
+    button {
+      background: #b57cf2;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #9f5fee;
+    }
+    .hidden {
+      display: none;
+    }
+    .thumbs-up {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #b57cf2;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ShortListed Admin Panel</h1>
+    <form method="POST">
+      <label for="type">Select Job Type:</label>
+      <select id="job-type" name="job_type" onchange="showDescriptionBox()">
+        <option value="">-- Choose --</option>
+        <option value="technical">Technical</option>
+        <option value="non-technical">Non-Technical</option>
+      </select>
+
+      <div id="jd-box" class="hidden">
+        <label>Enter Job Description:</label>
+        <textarea name="jd" rows="6" placeholder="Paste job description here..." required></textarea>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    {% if success %}
+      <div class="thumbs-up">👍 Thanks! You’ll receive the shortlisted resumes by email.</div>
+    {% endif %}
+  </div>
+
+  <script>
+    function showDescriptionBox() {
+      const type = document.getElementById('job-type').value;
+      const box = document.getElementById('jd-box');
+      if (type) box.classList.remove('hidden');
+      else box.classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

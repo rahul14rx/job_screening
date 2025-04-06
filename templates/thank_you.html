@@ -1,0 +1,42 @@
+<!-- thank_you.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You | ShortListed</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #0f0f0f, #1a0033);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .msg {
+      font-size: 1.6rem;
+      color: #b57cf2;
+      animation: fadeIn 1s ease-in;
+    }
+    .emoji {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: pop 0.8s ease;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="emoji">👍</div>
+  <div class="msg">Job Description Submitted Successfully!<br>Please wait for resumes to be uploaded and matched.</div>
+</body>
+</html>
